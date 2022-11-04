@@ -1,2 +1,3 @@
 ⓵@builtin phpの無効
 ⓶PHP intelephenseのインストール
+⓷PHP debugのインストール　→作成したプログラムをワンストップ動かし確認できる。エラーを確認しやすくなる。
