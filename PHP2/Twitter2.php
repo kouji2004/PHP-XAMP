@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['tweets'])) {
+  $_SESSION['tweets'] = [];
+}
+
+if (isset($_POST['tweet']) && $_POST['tweet'] !== '') {
+  $_SESSION['tweets'][] = $_POST['tweet'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -10,23 +22,15 @@
 
 <body>
   <h1>練習</h1>
-  <form action="Twitter.php" method="post">
+  <form action="Twitter2.php" method="post">
     <textarea name="tweet"></textarea>
     <button>送信</button>
   </form>
 
-
   <?php
-  $tweets = [];
-  if (isset($POST_["tweet"]) && $POST_["tweet"] !== "") {
-    $tweets[] = $POST_["tweet"];
-  }
+  foreach (array_reverse($_SESSION['tweets']) as $tweet) {
   ?>
-
-  <?php
-  foreach ($tweets as $tweet) {
-  ?>
-    <p><?= $tweet ?></p>
+    <div class="tweet"><?= nl2br($tweet) ?></div>
   <?php
   }
   ?>
