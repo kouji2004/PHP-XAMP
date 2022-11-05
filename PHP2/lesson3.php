@@ -1,5 +1,5 @@
 <?php
-$num = 11;
+$num = mt_rand(1, 11);
 
 if ($num > 10) {
   echo "numは10より大きい";
