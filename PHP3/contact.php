@@ -5,6 +5,7 @@ $modo = "input";
 if (isset($_POST["back"]) && $_POST["back"]) {
   //何もしない
 } else if (isset($_POST["confirm"]) && $_POST["confirm"]) {
+  //確認ボタン押したとき
   $_SESSION["name"] = $_POST["name"];
   $_SESSION["email"] = $_POST["email"];
   $_SESSION["message"] = $_POST["message"];
