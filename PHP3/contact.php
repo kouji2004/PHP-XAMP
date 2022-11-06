@@ -9,14 +9,29 @@
 </head>
 
 <body>
-  <from action="./contact.php" method="post">
-    名前<input type="text" name="name" value=""><br>
-    Eメール<input type="email" name="email" value=""><br>
-    お問い合わせ内容<br>
-    <textarea cols="40" rows="8" name="message"></textarea>
-    <input type="submit" name="confirm" value="確認"></input>
+  <?php if ($_POST) { ?>
+    <!--確認画面-->
+    <form action="contact.php method=" php">
+      名前 <?php echo $_POST["name"] ?><br>
+      Eメール <?php echo $_POST["email"] ?><br>
+      お問い合わせ内容<br>
+      <?php echo nl2br($_POST["message"]) ?>
+      <input type="submit" name="back" value="戻る">
+      <input type="submit" name="send" value="送信">
+    </form>
 
-  </from>
+  <?php } else { ?>
+    <!--入力画面-->
+    <from action="contact.php" method="post">
+      名前<input type="text" name="name" value=""><br>
+      Eメール<input type="email" name="email" value=""><br>
+      お問い合わせ内容<br>
+      <textarea cols="40" rows="8" name="message"></textarea>
+      <input type="submit" name="confirm" value="確認"></input>
+    </from>
+  <?php } ?>
 </body>
+
+
 
 </html>
