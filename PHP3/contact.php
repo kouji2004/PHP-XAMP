@@ -1,12 +1,18 @@
 <?php
+session_start();
 $modo = "input";
 
 if (isset($_POST["back"]) && $_POST["back"]) {
-  //何もｓない
+  //何もしない
 } else if (isset($_POST["confirm"]) && $_POST["confirm"]) {
+  $_SESSION["name"] = $_POST["name"];
+  $_SESSION["email"] = $_POST["email"];
+  $_SESSION["message"] = $_POST["message"];
   $modo = "confirm";
 } else if (isset($_POST["send"]) && $_POST["send"]) {
   $modo = "send";
+} else {
+  $_SESSION = array();
 }
 ?>
 
@@ -25,20 +31,20 @@ if (isset($_POST["back"]) && $_POST["back"]) {
   <?php if ($modo == "input") { ?>
     <!--入力画面-->
     <form action="contact.php" method="post">
-      名前<input type="text" name="name" value=""><br>
-      Eメール<input type="email" name="email" value=""><br>
+      名前<input type="text" name="name" value="<?php echo $_SESSION["name"] ?>"><br>
+      Eメール<input type="email" name="email" value="<?php echo $_SESSION["email"] ?>"><br>
       お問い合わせ内容<br>
-      <textarea cols="40" rows="8" name="message"></textarea><br>
+      <textarea cols="40" rows="8" name="message"><?php echo $_SESSION["message"] ?></textarea><br>
       <input type="submit" name="confirm" value="確認" />
     </form>
 
   <?php } else if ($modo == "confirm") { ?>
     <!--確認画面-->
     <form action="contact.php" method="post">
-      名前 <?php echo $_POST["name"] ?><br>
-      Eメール <?php echo $_POST["email"] ?><br>
+      名前 <?php echo $_SESSION["name"] ?><br>
+      Eメール <?php echo $_SESSION["email"] ?><br>
       お問い合わせ内容<br>
-      <?php echo nl2br($_POST["message"]) ?>
+      <?php echo nl2br($_SESSION["message"]) ?>
       <input type="submit" name="back" value="戻る" />
       <input type="submit" name="send" value="送信" />
     </form>
