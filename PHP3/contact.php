@@ -1,3 +1,16 @@
+<?php
+$modo = "input";
+
+if (isset($_POST["back"]) && $_POST["back"]) {
+  //何もｓない
+} else if (isset($_POST["confirm"]) && $_POST["confirm"]) {
+  $modo = "confirm";
+} else if (isset($_POST["send"]) && $_POST["send"]) {
+  $modo = "send";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -9,9 +22,19 @@
 </head>
 
 <body>
-  <?php if ($_POST) { ?>
+  <?php if ($modo == "input") { ?>
+    <!--入力画面-->
+    <form action="contact.php" method="post">
+      名前<input type="text" name="name" value=""><br>
+      Eメール<input type="email" name="email" value=""><br>
+      お問い合わせ内容<br>
+      <textarea cols="40" rows="8" name="message"></textarea><br>
+      <input type="submit" name="confirm" value="確認" />
+    </form>
+
+  <?php } else if ($modo == "confirm") { ?>
     <!--確認画面-->
-    <form action="contact.php method=" php">
+    <form action="contact.php" method="post">
       名前 <?php echo $_POST["name"] ?><br>
       Eメール <?php echo $_POST["email"] ?><br>
       お問い合わせ内容<br>
@@ -21,14 +44,8 @@
     </form>
 
   <?php } else { ?>
-    <!--入力画面-->
-    <form action="contact.php" method="post">
-      名前<input type="text" name="name" value=""><br>
-      Eメール<input type="email" name="email" value=""><br>
-      お問い合わせ内容<br>
-      <textarea cols="40" rows="8" name="message"></textarea><br>
-      <input type="submit" name="confirm" value="確認" />
-    </form>
+    <!--完了画面-->
+
   <?php } ?>
 </body>
 
