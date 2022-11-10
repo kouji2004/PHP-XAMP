@@ -16,7 +16,7 @@ class character
 
 
 
-  function hit($point)
+  public function hit($point)
   {
     echo "攻撃した!モンスターに" . $point . "のダメージ<br>";
   }
@@ -24,6 +24,21 @@ class character
   function runAway()
   {
     echo "逃げた!<br>";
+  }
+
+  //モンスターからの攻撃でhpが減る
+  public function attacked($point)
+  {
+    $this->damaged($point);
+    $this->hitPoint -= $point;
+    echo "残りhpは" . $this->hitPoint . "です...<br>";
+  }
+
+  //モンスターからのダメージ
+  private function damaged($point)
+  {
+    echo "モンスターからの攻撃を受けた<br>";
+    echo $point . "のダメージ!<br>";
   }
 }
 
@@ -46,3 +61,5 @@ $hero->hit(5);
 // character::hit(5);
 
 //アクセス修飾→public,static,protected
+
+$hero->attacked(5);
