@@ -44,3 +44,5 @@ $hero->hit(5);
 //クラス名::メソッド名
 // クラスメソッド名の前にstatic
 // character::hit(5);
+
+//アクセス修飾→public,static,protected
