@@ -15,7 +15,6 @@ class character
   }
 
 
-
   public function hit($point)
   {
     echo "攻撃した!モンスターに" . $point . "のダメージ<br>";
@@ -43,6 +42,19 @@ class character
 }
 
 
+//クラスの親子関係
+class Wizard extends character
+{
+
+  //じゅもん
+  public function magic()
+  {
+    echo "魔法を唱えた<br>";
+  }
+}
+
+
+
 // クラスをオブジェクト化して使う（動的）
 // $オブジェクト名　= new クラス名(引数);
 // -> ←アロー演算子
@@ -63,3 +75,6 @@ $hero->hit(5);
 //アクセス修飾→public,static,protected
 
 $hero->attacked(5);
+
+$Wizard = new Wizard();
+$Wizard->magic();
