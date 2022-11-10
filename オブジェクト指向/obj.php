@@ -4,19 +4,21 @@
 
 class character
 {
-  public $hitpoint;
+  public $hitPoint;
 
   //初期化メソッド
-  public function initial()
+  public function __construct()
   {
-    $this->hitpoint = 30;
-    echo "初期HPは" . $this->hitpoint . "です!<br>";
+    $this->hitPoint = 30;
+    echo "初期HPは" . $this->hitPoint . "です!<br>";
     //$thisはクラス全体のこと
   }
 
+
+
   function hit($point)
   {
-    echo "攻撃した!モンスターに" . $point . "のダメージ";
+    echo "攻撃した!モンスターに" . $point . "のダメージ<br>";
   }
 
   function runAway()
@@ -42,7 +44,3 @@ $hero->hit(5);
 //クラス名::メソッド名
 // クラスメソッド名の前にstatic
 // character::hit(5);
-
-
-//コンストラクタ→初期化
-$hero->initial();
