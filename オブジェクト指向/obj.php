@@ -6,7 +6,13 @@ class character
 {
   public $hitpoint;
 
-
+  //初期化メソッド
+  public function initial()
+  {
+    $this->hitpoint = 30;
+    echo "初期HPは" . $this->hitpoint . "です!<br>";
+    //$thisはクラス全体のこと
+  }
 
   function hit($point)
   {
@@ -36,3 +42,7 @@ $hero->hit(5);
 //クラス名::メソッド名
 // クラスメソッド名の前にstatic
 // character::hit(5);
+
+
+//コンストラクタ→初期化
+$hero->initial();
