@@ -37,5 +37,20 @@ var_dump($d) . "<br>";
 $e = "PHPの絵本";
 var_dump($e) . "<br>";
 //実行結果:string(12) "PHPの絵本"
+?>
 
+
+<br>
+<br>
+
+
+<?php
+//例題1
+$a = 2;
+$b = 4;
+
+print "変数\$aに変数\$bを代入<br>";
+$a = $b;
+
+echo $a;
 ?>
