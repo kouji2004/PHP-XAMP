@@ -48,6 +48,13 @@ echo $a["dog"];
 <br>
 
 <!-- 多次元配列 -->
+<?php
+$a = array(1, 2, 3);
+$a2 = array(4, 5, 6,);
 
+$all = array($a, $a2);
+
+echo $all[1][2];
+?>
 <br>
 <br>
