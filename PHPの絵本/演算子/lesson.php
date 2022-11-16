@@ -1,25 +1,30 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!-- 演算子 -->
+<?php
+$a = 5 + 5;
+$b = 5 * 5;
+$c = 5 - 6;
+$d = 5 / 5;
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>演算子</title>
-</head>
+print "5+5は $a<br>\n";
+print "5*5は $b<br>\n";
+print "5-6は $c<br>\n";
+print "5/5は $d<br>\n";
+?>
 
-<body>
-  <?php
-  $a = 5 + 5;
-  $b = 5 * 5;
-  $c = 5 - 6;
-  $d = 5 / 5;
+<!-- 複合演算子 -->
+<?php
+$a = 90;
+$a += 10;
 
-  print "5+5は $a<br>\n";
-  print "5*5は $b<br>\n";
-  print "5-6は $c<br>\n";
-  print "5/5は $d<br>\n";
-  ?>
-</body>
+print "$a<br>";
+?>
 
-</html>
+<!-- インクリメント演算子(++)とデクリメント演算子(--) -->
+<?php
+$a = 1;
+print "はじめは $a でした<br>";
+$a++;
+print "1増えて $a になりました<br>";
+$a--;
+print "1減って $a に戻りました<br>";
+?>
