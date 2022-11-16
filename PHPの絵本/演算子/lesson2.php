@@ -24,3 +24,25 @@ print $b[1];
 print $c[2];
 // 実行結果:5
 ?>
+<br>
+
+<!-- 例題1 -->
+
+<?php
+$a = array(0 => 0, 1 => 1);
+$b = array(1 => 1, 0 => 0);
+$c = array(0 => 0, 1 => "1");
+
+var_dump($a == $b);
+//実行結果:bool(true) 
+var_dump($a === $b);
+// 実行結果:bool(false)
+print "<br>";
+
+var_dump($a == $c);
+//実行結果:bool(true) 
+var_dump($a === $c);
+// 実行結果:bool(false)
+
+
+?>
